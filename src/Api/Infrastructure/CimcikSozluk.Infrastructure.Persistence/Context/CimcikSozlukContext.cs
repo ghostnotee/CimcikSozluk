@@ -1,12 +1,16 @@
 using System.Reflection;
 using CimcikSozluk.Api.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace CimcikSozluk.Infrastructure.Persistence.Context;
 
 public class CimcikSozlukContext : DbContext
 {
     public const string DEFAULT_SCHEMA = "dbo";
+    public CimcikSozlukContext()
+    {
+    }
 
     public CimcikSozlukContext(DbContextOptions options) : base(options)
     {
@@ -20,6 +24,16 @@ public class CimcikSozlukContext : DbContext
     public DbSet<EntryCommentVote> EntryCommentVotes { get; set; }
     public DbSet<EntryCommentFavorite> EntryCommentFavorites { get; set; }
     public DbSet<EmailConfirmation> EmailConfirmations { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            
+            var connStr = "Server=localhost,1433;Database=cimciksozluk;User Id=sa;Password=mySuperStrong(!)Password";
+            optionsBuilder.UseSqlServer(connStr, opt => { opt.EnableRetryOnFailure(); });
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
