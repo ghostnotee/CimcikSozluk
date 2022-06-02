@@ -18,6 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Core\CimcikSozluk.Api.Application\CimcikSozluk.Api.Application.csproj" />
       <ProjectReference Include="..\..\Core\CimcikSozluk.Api.Domain\CimcikSozluk.Api.Domain.csproj" />
     </ItemGroup>
 
