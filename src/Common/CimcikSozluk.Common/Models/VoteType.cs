@@ -1,4 +1,4 @@
-namespace CimcikSozluk.Common.ViewModels;
+namespace CimcikSozluk.Common.Models;
 
 public enum VoteType
 {
