@@ -1,5 +1,3 @@
-using CimcikSozluk.Common.ViewModels;
-
 namespace CimcikSozluk.Api.Domain.Models;
 
 public class EntryCommentFavorite : BaseEntity

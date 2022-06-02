@@ -18,8 +18,8 @@ public static class Registration
             conf.UseSqlServer(connStr, opt => { opt.EnableRetryOnFailure(); });
         });
 
-        var seedData = new SeedData();
-        seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+        // var seedData = new SeedData();
+        // seedData.SeedAsync(configuration).GetAwaiter().GetResult();
 
         services.AddScoped<IEmailConfirmationRepository, EmailConfirmationRepository>();
         services.AddScoped<IUserRepository, UserRepository>();

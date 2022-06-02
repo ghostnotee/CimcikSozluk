@@ -1,4 +1,4 @@
-using CimcikSozluk.Common.ViewModels;
+using CimcikSozluk.Common.Models;
 
 namespace CimcikSozluk.Api.Domain.Models;
 
