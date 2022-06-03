@@ -1,6 +1,6 @@
-namespace CimcikSozluk.Api.Domain.Models;
+namespace CimcikSozluk.Common.Events.User;
 
-public class EmailConfirmation : BaseEntity
+public class UserEmailChangedEvent
 {
     public string OldEmailAddress { get; set; }
     public string NewEmailAddress { get; set; }
