@@ -2,7 +2,7 @@ using CimcikSozluk.Common.Models.RequestModels;
 using FluentValidation;
 using FluentValidation.Validators;
 
-namespace CimcikSozluk.Api.Application.Features.Commands.User;
+namespace CimcikSozluk.Api.Application.Features.Commands.User.Login;
 
 public class LoginUserCommandValidator : AbstractValidator<LoginUserCommand>
 {
