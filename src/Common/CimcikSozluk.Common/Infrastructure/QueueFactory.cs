@@ -7,7 +7,7 @@ namespace CimcikSozluk.Common.Infrastructure;
 
 public static class QueueFactory
 {
-    public static void SendMessageExchange(string exchangeName, string exchangeType, string queueName, object obj)
+    public static void SendMessageToExchange(string exchangeName, string exchangeType, string queueName, object obj)
     {
         var channel = CreateBasicConsumer().EnsureExchange(exchangeName, exchangeType)
             .EnsureQueue(queueName, exchangeName).Model;
