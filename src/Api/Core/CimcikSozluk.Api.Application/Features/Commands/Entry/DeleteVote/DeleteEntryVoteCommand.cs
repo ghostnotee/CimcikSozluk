@@ -2,7 +2,7 @@ using MediatR;
 
 namespace CimcikSozluk.Api.Application.Features.Commands.Entry.DeleteVote;
 
-public abstract class DeleteEntryVoteCommand : IRequest<bool>
+public class DeleteEntryVoteCommand : IRequest<bool>
 {
     public DeleteEntryVoteCommand(Guid entryId, Guid userId)
     {

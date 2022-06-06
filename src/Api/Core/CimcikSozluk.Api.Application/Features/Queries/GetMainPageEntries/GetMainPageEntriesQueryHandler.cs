@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore;
 namespace CimcikSozluk.Api.Application.Features.Queries.GetEntries.GetMainPageEntries;
 
 public class
-    GetMainPAgeEntriesQueryHandler : IRequestHandler<GetMainPageEntriesQuery, PagedViewModel<GetEntryDetailViewModel>>
+    GetMainPageEntriesQueryHandler : IRequestHandler<GetMainPageEntriesQuery, PagedViewModel<GetEntryDetailViewModel>>
 {
     private readonly IEntryRepository _entryRepository;
 
-    public GetMainPAgeEntriesQueryHandler(IEntryRepository entryRepository)
+    public GetMainPageEntriesQueryHandler(IEntryRepository entryRepository)
     {
         _entryRepository = entryRepository;
     }
@@ -42,6 +42,6 @@ public class
 
         var entries = await list.GetPaged(request.Page, request.PageSize);
 
-        return new PagedViewModel<GetEntryDetailViewModel>(entries.Results, entries.PageInfo);
+        return entries;
     }
 }
