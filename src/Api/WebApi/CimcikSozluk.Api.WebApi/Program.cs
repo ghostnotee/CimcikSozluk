@@ -1,4 +1,5 @@
 using CimcikSozluk.Api.Application.Extensions;
+using CimcikSozluk.Api.WebApi.Infrastructure.Extensions;
 using CimcikSozluk.Infrastructure.Persistence.Extensions;
 using FluentValidation.AspNetCore;
 
@@ -16,6 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationRegistration();
 builder.Services.AddInfrastructureRegistration(builder.Configuration);
+builder.Services.ConfigureAuth(builder.Configuration);
 
 var app = builder.Build();
 
@@ -27,6 +29,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.ConfigureExceptionHandnling(app.Environment.IsDevelopment());
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
